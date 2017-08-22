@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+	<meta charset="utf-8">
+	<meta content-type="text/html">
+	<style type="text/css">
+		#tabs {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%
+		}
+		.tab {
+			float: left;
+			/*margin:2%;*/
+			width: 33%;
+			text-align:center;
+			padding-bottom: 10px;
+		}
+		#tab1 {
+			color: red;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<div id="discoveryDiv">比分div</div>
+	<div id="matchDiv" style="display: none;">赛事div</div>
+	<div id="rankingDiv" style="display: none;">世界排名div</div>
+	<div id="tabs">
+		<div class="tab" id="tab1"><img id="discoveryImg" src="../image/tab-discovery-clicked.png"  /><br/>比分</div>
+		<div class="tab" id="tab2"><img id="matchImg" src="../image/tab-match.png"  /><br/>赛事</div>
+		<div class="tab" id="tab3"><img id="rankingImg" src="../image/tab-ranking.png"  /><br/>世界排名</div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//比分tab绑定点击事件
+		$("#tab1").bind("click",function(){
+			//改变图片路径 与 字体颜色
+			$("#discoveryImg").attr("src","../image/tab-discovery-clicked.png");
+			$("#matchImg").attr("src","../image/tab-match.png");
+			$("#rankingImg").attr("src","../image/tab-ranking.png");
+			$(this).css("color","red");
+			$("#tab2").css("color","black");
+			$("#tab3").css("color","black");
+
+			//切换页签
+			$("#discoveryDiv").css("display","block");
+			$("#matchDiv").css("display","none");
+			$("#rankingDiv").css("display","none");
+		});
+		//赛事tab绑定点击事件
+		$("#tab2").bind("click",function(){
+			//改变图片路径 与 字体颜色
+			$("#discoveryImg").attr("src","../image/tab-discovery.png");
+			$("#matchImg").attr("src","../image/tab-match-clicked.png");
+			$("#rankingImg").attr("src","../image/tab-ranking.png");
+			$(this).css("color","red");
+			$("#tab1").css("color","black");
+			$("#tab3").css("color","black");
+
+			//切换页签
+			$("#discoveryDiv").css("display","none");
+			$("#matchDiv").css("display","block");
+			$("#rankingDiv").css("display","none");
+		});
+		//世界排名tab绑定点击事件
+		$("#tab3").bind("click",function(){
+			//改变图片路径 与 字体颜色
+			$("#discoveryImg").attr("src","../image/tab-discovery.png");
+			$("#matchImg").attr("src","../image/tab-match.png");
+			$("#rankingImg").attr("src","../image/tab-ranking-clicked.png");
+			$(this).css("color","red");
+			$("#tab2").css("color","black");
+			$("#tab1").css("color","black");
+
+			//切换页签
+			$("#discoveryDiv").css("display","none");
+			$("#matchDiv").css("display","none");
+			$("#rankingDiv").css("display","block");
+		});
+	});
+</script>
+</html>
