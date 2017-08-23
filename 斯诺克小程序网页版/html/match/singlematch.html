@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>赛程</title>
+	<meta charset="utf-8">
+	<meta content-type="text/html">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 
@@ -16,7 +19,9 @@ $(document).ready(function(){
 		type:"get",
 		success:function(data){
 			if(data&&data.data&&data.data.length>0){
-				
+				$.each(data.data,function(index,data){
+					console.log(data.date);
+				})
 			}
 		}
 	})
