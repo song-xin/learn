@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>比分</title>
+	<meta charset="utf-8">
+	<meta content-type="text/html">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<style type="text/css">
+		
+		#tab1 {
+			color: red;
+		}
+
+		#toptabs {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+		.toptab {
+			float: left;
+			/*margin:2%;*/
+			width: 50%;
+			text-align:center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: red;
+			background-color: #FFFFFF;
+		}
+		#toptab1 {
+			border-bottom:solid red 1px;
+		}
+		.disPanel {
+			/*margin-top: 5%;*/
+			/*background-color: grey;*/
+		}
+		.bg-grey {
+			background-color: #F5F5F5;
+			color: red;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<div id="discoveryDiv">
+		<div id="toptabs">
+			<div class="toptab" id="toptab1">今日赛程</div>
+			<div class="toptab" id="toptab2">比分直播</div>
+		</div>
+		<div class="disPanel" id="scheduleDiv" ></div>
+		<div class="disPanel" id="liveDiv" style="display: none;">比分直播div</div>
+	</div>
+	<div id="matchDiv" style="display: none;">
+		赛事div
+	</div>
+	<div id="rankingDiv" style="display: none;">
+		世界排名div
+	</div>
+	<!-- <iframe src="../bottomtab.html"></iframe> -->
+	<div id="bottomtabs">
+		<div class="tab" id="tab1"><img id="discoveryImg" src="../../image/tab-discovery-clicked.png"  /><br/>比分</div>
+		<div class="tab" id="tab2"><img id="matchImg" src="../../image/tab-match.png"  /><br/>赛事</div>
+		<div class="tab" id="tab3"><img id="rankingImg" src="../../image/tab-ranking.png"  /><br/>世界排名</div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//设置比分页面两个面板的位置
+		var toptabsHeight = $("#toptabs").height();
+		$(".disPanel").css("margin-top",toptabsHeight);
+
+		
+
+		//今日赛程tab绑定点击事件
+		$("#toptab1").bind("click",function(){
+			$(this).css("border-bottom","red 1px solid");
+			$("#toptab2").css("border-bottom","none");
+			$("#scheduleDiv").css("display","block");
+			$("#liveDiv").css("display","none");
+			//ajax获取比分数据
+			$.getJSON('today.json',
+		  		function(data){
+		  			if(data&&data.data&&data.data.length>0){
+		        		$.each(data.data,function(index1,item1){
+		        			$("#scheduleDiv").append("<div class='bg-grey'>序号"+item1.round+item1.time+"</div>");
+		        			//console.log(item1.round);
+		        			$.each(item1.againstList,function(index2,item){
+		        				$("#scheduleDiv").append("<div >"+item.no+item.p1name+item.p1set+"VS"+item.p2set+item.p2name+"</div>");
+		        				//console.log(item.p1name);
+		        			});
+		        		});
+		        	}
+		  		}
+		  	);
+		  // 		$.ajax({
+				// url:"https://snkdev.top/dev/api/v1/match/today",
+				// type:"get",
+		  //       dataType: "json",
+		  //       //crossDomain: true,
+		  //       success: function(data) {
+		  //       	if(data&&data.data&&data.data.length>0){
+		  //       		$.each(data.data,function(index1,item1){
+		  //       			console.log(item1.round);
+		  //       			$.each(item1.againstList,function(index2,item){
+		  //       				console.log(item.p1name);
+		  //       			});
+		        			
+		  //       		});
+		        		
+		  //       	}
+		  //       }
+		  //   });
+		});
+
+		//比分直播tab绑定点击事件
+		$("#toptab2").bind("click",function(){
+			$(this).css("border-bottom","red 1px solid");
+			$("#toptab1").css("border-bottom","none");
+			$("#scheduleDiv").css("display","none");
+			$("#liveDiv").css("display","block");
+		});
+	});
+</script>
+<script src="../../js/main.js"></script>
+</html>

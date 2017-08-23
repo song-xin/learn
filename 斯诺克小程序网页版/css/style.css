@@ -1,0 +1,15 @@
+#bottomtabs {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #F5F5F5;
+	/*z-index: 999;*/
+}
+.tab {
+	float: left;
+	/*margin:2%;*/
+	width: 33%;
+	text-align:center;
+	padding-bottom: 10px;
+}
