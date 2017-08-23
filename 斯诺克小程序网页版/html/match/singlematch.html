@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>赛程</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	var params = location.search;
+	var matchId = params.substring(params.indexOf("=")+1);
+	$.ajax({
+		url:"https://snkdev.top/dev/api/v1/match/schedule?id="+matchId,
+		dataType:"json",
+		type:"get",
+		success:function(data){
+			if(data&&data.data&&data.data.length>0){
+				
+			}
+		}
+	})
+});
+	
+</script>
+</html>

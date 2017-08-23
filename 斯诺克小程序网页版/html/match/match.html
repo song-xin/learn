@@ -6,12 +6,27 @@
 	<meta content-type="text/html">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<style type="text/css">
-		
+		#toptab {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 64px;
+			line-height: 64px;
+			color:#ffffff;
+			text-align: center;
+			font-size: 35px;
+			background-color: #cc0000;/*统一的暗红色*/
+		}
+		.right {
+			float: right;
+			margin-right: 20px;
+		}
 		#tab2 {
 			color: red;
 		}
 		#matchsDiv{
-			
+			margin-top: 64px;
 		}
 		.matchDiv {
 			border-top:  #F5F5F5 solid 1px;
@@ -39,6 +54,9 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+	<div id="toptab">
+		<img id="calendar" class="right" src="../../image/calendar.png"/>
+	</div>
 	<div id="matchsDiv">
 		
 	</div>
@@ -51,8 +69,14 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var season = new Date().getFullYear();
+		$("#toptab").append(season+"/"+(season+1)+"赛季");
+		$(".poster-img").click(function(){
+			var matchId = $(this).attr("matchId");
+			self.location = "singelmatch.html?id="+matchId;
+		});
 		$.ajax({
-			url:"https://snkdev.top/dev/api/v1/match/list?season=2017",
+			url:"https://snkdev.top/dev/api/v1/match/list?season="+season,
 			dataType:"json",
 			type:"get",
 			success:function(data){
@@ -62,7 +86,7 @@
 						if($.trim(posterUrl)==""){
 							posterUrl="http://oodlprgqg.bkt.clouddn.com/%E6%9C%80%E7%BB%88%E7%89%88_meitu_12.png";
 						}
-						$("#matchsDiv").append("<div class='matchDiv'><div class='img'><img class='poster-img' src='"+posterUrl+"'/></div>"
+						$("#matchsDiv").append("<div class='matchDiv' onclick='openSingle("+item.id+")'><div class='img'><img class='poster-img' src='"+posterUrl+"'/></div>"
 							+"<div class='match-describe'><h3>"+item.name+"</h3>"
 							+"<div class=''>"
 							+"<img src='../../image/type.png'/><span class='text-part'>赛事性质："+item.type+"</span>"
@@ -78,12 +102,18 @@
 				}
 			}
 		});
-		
+		$("#calendar").bind("click",function(){
+
+		});
 		// var bottomHeight = $("#bottomtabs").height();
 		// var matchsDivHeight = $("#matchsDiv").height();
 		// $("#matchsDiv").css("margin-bottom",bottomHeight+matchsDivHeight);
 		
 	});
+	function openSingle(matchId){
+		self.location = "singlematch.html?id="+matchId;
+	}
+
 </script>
 <script src="../../js/main.js"></script>
 </html>
