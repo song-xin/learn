@@ -6,18 +6,61 @@
 	<meta content-type="text/html">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<style type="text/css">
-		
+		#toptab {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 64px;
+			line-height: 64px;
+			color:#ffffff;
+			text-align: center;
+			font-size: 35px;
+			background-color: #cc0000;/*统一的暗红色*/
+		}
+		.right {
+			float: right;
+			margin-right: 20px;
+		}
 		#tab2 {
+			color: red;
+		}
+		#matchsDiv{
+			margin-top: 64px;
+		}
+		.matchDiv {
+			border-top:  #F5F5F5 solid 1px;
+			border-bottom: #F5F5F5 solid 1px;
+			clear: both;
+			height: 300px;
+
+		}
+		.img {
+			width: 300px;
+			height: 300px;
+			float: left;
+		}
+		.match-describe {
+
+		}
+		.text-part{
+			/*margin: 0 auto;
+			line-height: 32px;*/
+		}
+		.clo-red {
 			color: red;
 		}
 	</style>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-	<div id="matchDiv">
-		赛事div
+	<div id="toptab">
+		<img id="calendar" class="right" src="../../image/calendar.png"/>
 	</div>
-	<div id="bottomtabs">
+	<div id="matchsDiv">
+		
+	</div>
+	<div id="bottomtabs" >
 		<div class="tab" id="tab1"><img id="discoveryImg" src="../../image/tab-discovery.png"  /><br/>比分</div>
 		<div class="tab" id="tab2"><img id="matchImg" src="../../image/tab-match-clicked.png"  /><br/>赛事</div>
 		<div class="tab" id="tab3"><img id="rankingImg" src="../../image/tab-ranking.png"  /><br/>世界排名</div>
@@ -26,8 +69,51 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var season = new Date().getFullYear();
+		$("#toptab").append(season+"/"+(season+1)+"赛季");
+		$(".poster-img").click(function(){
+			var matchId = $(this).attr("matchId");
+			self.location = "singelmatch.html?id="+matchId;
+		});
+		$.ajax({
+			url:"https://snkdev.top/dev/api/v1/match/list?season="+season,
+			dataType:"json",
+			type:"get",
+			success:function(data){
+				if(data&&data.data&&data.data.length>0){
+					$.each(data.data,function(index,item){
+						var posterUrl = item.posterUrl;
+						if($.trim(posterUrl)==""){
+							posterUrl="http://oodlprgqg.bkt.clouddn.com/%E6%9C%80%E7%BB%88%E7%89%88_meitu_12.png";
+						}
+						$("#matchsDiv").append("<div class='matchDiv' onclick='openSingle("+item.id+")'><div class='img'><img class='poster-img' src='"+posterUrl+"'/></div>"
+							+"<div class='match-describe'><h3>"+item.name+"</h3>"
+							+"<div class=''>"
+							+"<img src='../../image/type.png'/><span class='text-part'>赛事性质："+item.type+"</span>"
+							+"</div>"
+							+"<div class=''>"
+							+"<img src='../../image/time.png'/><span class='text-part clo-red'>时间："+item.time+"</span>"
+							+"</div>"
+							+"<div class=''>"
+							+"<img src='../../image/number.png'/><span class='text-part'>参赛人数："+item.number+"</span>"
+							+"</div>"
+							+"</div></div>");
+					});
+				}
+			}
+		});
+		$("#calendar").bind("click",function(){
+
+		});
+		// var bottomHeight = $("#bottomtabs").height();
+		// var matchsDivHeight = $("#matchsDiv").height();
+		// $("#matchsDiv").css("margin-bottom",bottomHeight+matchsDivHeight);
 		
 	});
+	function openSingle(matchId){
+		self.location = "singlematch.html?id="+matchId;
+	}
+
 </script>
 <script src="../../js/main.js"></script>
 </html>

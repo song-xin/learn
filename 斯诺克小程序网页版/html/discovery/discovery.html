@@ -37,6 +37,7 @@
 		.bg-grey {
 			background-color: #F5F5F5;
 			color: red;
+			margin-bottom: 10px;
 		}
 	</style>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -69,7 +70,21 @@
 		//设置比分页面两个面板的位置
 		var toptabsHeight = $("#toptabs").height();
 		$(".disPanel").css("margin-top",toptabsHeight);
-
+		//ajax获取比分数据
+		$.getJSON('today.json',
+	  		function(data){
+	  			if(data&&data.data&&data.data.length>0){
+	        		$.each(data.data,function(index1,item1){
+	        			$("#scheduleDiv").append("<div class='bg-grey'>序号"+item1.round+item1.time+"</div>");
+	        			//console.log(item1.round);
+	        			$.each(item1.againstList,function(index2,item){
+	        				$("#scheduleDiv").append("<div >"+item.no+item.p1name+item.p1set+"VS"+item.p2set+item.p2name+"</div>");
+	        				//console.log(item.p1name);
+	        			});
+	        		});
+	        	}
+	  		}
+	  	);
 		
 
 		//今日赛程tab绑定点击事件
