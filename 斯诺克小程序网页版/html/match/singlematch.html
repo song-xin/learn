@@ -5,9 +5,27 @@
 	<meta charset="utf-8">
 	<meta content-type="text/html">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+		.date {
+			background-color: #cc0000;/*统一的暗红色*/
+			color: #FFFFFF;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.sessionhead {
+			background-color: #F5F5F5;/*统一灰色*/
+			color: #cc0000;
+		}
+		.against {
+			border-bottom: #F5F5F5 solid 1px;
+		}
+	</style>
 </head>
 <body>
-
+	<div id="againstDiv">
+		
+	</div>
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -20,8 +38,14 @@ $(document).ready(function(){
 		success:function(data){
 			if(data&&data.data&&data.data.length>0){
 				$.each(data.data,function(index,data){
-					console.log(data.date);
-				})
+					$("#againstDiv").append("<div class='date'>"+data.date+data.day+"</div>");
+					$.each(data.sessionList,function(index,session){
+						$("#againstDiv").append("<div class='sessionhead'>序号"+session.time+session.round+"</div>");
+						$.each(session.againstList,function(index,against){
+							$("#againstDiv").append("<div class='against'>"+against.no+against.p1name+against.p1set+"VS"+against.p2set+against.p2name+"</div>");
+						});
+					});
+				});
 			}
 		}
 	})
