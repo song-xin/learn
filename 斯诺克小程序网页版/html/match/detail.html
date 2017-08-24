@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对阵</title>
+	<meta charset="utf-8">
+	<meta content-type="text/html">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+		#header {
+			background-image: url('../../image/againstbg.jpg');
+			color: #FFFFFF;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			width: 100%;
+			height: 400px;
+			font-weight: lighter;
+		}
+		#person1  {
+			padding: 10% 10%;
+			float: left;
+			text-align: center;
+		}
+		.player-font {
+		}
+		img {
+			/*margin-top: 10%;*/
+		}
+		#describe {
+			padding: 10% 10%;
+			float: left;
+			position: absolute;
+			margin: auto 35%;
+			text-align: center;
+		}
+		#matchname {
+		}
+		#nstate {
+			font-weight: bold;
+			font-size: x-large;
+		}
+		#person2 {
+			padding: 10% 10%;
+			float: right;
+			text-align: center;
+		}
+		#content {
+			margin-top: 15px;
+		}
+		.score {
+			margin: 5px 10px;
+			padding: 5px auto;
+			background-color: #F5F5F5;
+			height: 20px;
+		}
+		.font-bold {
+			font-weight: bold;
+		}
+		.left {
+			float: left;
+			padding-left:10%;
+			text-align: center;
+			width: 10%;
+		}
+		.right {
+			float: right;
+			padding-right:10%;
+			text-align: center;
+			width: 10%;
+		}
+		.m-left {
+			float: left;
+			position: absolute;
+			margin-left: 38%;
+			text-align: center;
+			width: 10%;
+		}
+		.m-right {
+			/*float: right;*/
+			position: absolute;
+			margin-left: 50%;
+			text-align: center;
+			width: 10%;
+		}
+		.mid {
+			float: left;
+			position: absolute;
+			margin: auto 44%;
+			text-align: center;
+			width: 10%;
+		}
+		.red {
+			color: #cc0000;/*统一的暗红色*/
+		}
+	</style>
+</head>
+<body>
+<div id="header"></div>
+<div id="content"></div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var params = location.search;
+		var dzid = "";
+		var date = "";
+		var strs = {};
+		if(params.indexOf("?")!=-1){
+			var str = params.substring(1);
+			strs = str.split("&");
+			dzid = unescape(strs[0].split("=")[1]);
+			//date = unescape(strs[1].split("=")[1]);
+		}
+		$.ajax({
+			url:"https://snkdev.top/dev/api/v1/match/detail?dzid="+dzid,//+"&date="+date,
+			dataType:"json",
+			type:"get",
+			success:function(data){
+				if(data&&data.data){
+					var nstate = '正在进行';
+					if(data.data.nstate=='finish'){
+						nstate = '已结束';
+					}
+					$("#header").append("<div id='person1' ><img src='"+data.data.photo1+"'/><div class='player-font'>"+data.data.player1+"</div></div>");
+					$("#header").append("<div id='describe'>"
+											+"<div id='matchname'>"+data.data.matchname+"&nbsp"+data.data.luncititle+"</div>"
+											+"<div id='nstate'>"+nstate+"</div>"
+											+"<div id='fen'>"+data.data.player1fen+"&nbsp:&nbsp"+data.data.player2fen+"</div>"
+										+"</div>");
+					$("#header").append("<div id='person2'><img src='"+data.data.photo2+"'/><div class='player-font'>"+data.data.player2+"</div></div>");
+					$("#content").append("<div class='score font-bold'><div class='left'>50+</div> <div class='m-left'>分数</div> <div class='mid'>#</div> <div class='m-right'>分数</div> <div class='right'>50+</div></div>");
+					$.each(data.data.duijulist,function(index,duiju){
+						if(duiju.winid=='1'){
+							$("#content").append("<div class='score'><div class='left'>"+duiju.player1more+"</div> <div class='m-left red'>"+duiju.player1fen+"</div><div class='mid'>("+duiju.junum+")</div><div class='m-right'>"+duiju.player2fen+"</div> <div class='right'>"+duiju.player2more+"</div></div>");
+						}else{
+							$("#content").append("<div class='score'><div class='left'>"+duiju.player1more+"</div> <div class='m-left'>"+duiju.player1fen+"</div><div class='mid'>("+duiju.junum+")</div><div class='m-right red'>"+duiju.player2fen+"</div> <div class='right'>"+duiju.player2more+"</div></div>");
+						}
+						
+					});
+				}
+			}
+		});
+	});
+</script>
+</html>
