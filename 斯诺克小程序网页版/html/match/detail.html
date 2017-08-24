@@ -107,10 +107,10 @@
 			var str = params.substring(1);
 			strs = str.split("&");
 			dzid = unescape(strs[0].split("=")[1]);
-			//date = unescape(strs[1].split("=")[1]);
+			date = unescape(strs[1].split("=")[1]);
 		}
 		$.ajax({
-			url:"https://snkdev.top/dev/api/v1/match/detail?dzid="+dzid,//+"&date="+date,
+			url:"https://snkdev.top/dev/api/v1/match/detail?dzid="+dzid+"&date="+date,
 			dataType:"json",
 			type:"get",
 			success:function(data){
