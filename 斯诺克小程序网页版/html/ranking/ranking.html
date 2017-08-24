@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>比分</title>
+	<title>世界排名</title>
 	<meta charset="utf-8">
 	<meta content-type="text/html">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
@@ -9,12 +9,51 @@
 		#tab3 {
 			color: red;
 		}
+		.bg-red {
+			background-color: #cc0000;/*统一的暗红色*/
+			color: #FFFFFF;
+			font-size: larger;
+			height: 40px;
+			line-height: 40px;
+		}
+		.left {
+			width: 10%;
+			float: left;
+			margin-left: 3%;
+			text-align: center;
+		}
+		.right {
+			width: 20%;
+			float: right;
+			margin-right: 3%;
+			text-align: center;
+		}
+		.mid {
+			width: 30%;
+			position: absolute;
+			margin-left: 32%;
+			text-align: center;
+		}
+		.grey {
+			background-color: #F5F5F5;/*统一灰色*/
+			height: 30px;
+			line-height: 30px;
+		}
+		.white {
+			height: 30px;
+			line-height: 30px;
+		}
 	</style>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 	<div id="rankingDiv" >
-		世界排名div
+		<div class="bg-red ">
+			<div class="left">排名</div>
+			<div class="mid">姓名</div>
+			<div class="right">奖金数</div>
+		</div>
+
 	</div>
 	<!-- <iframe src="../bottomtab.html"></iframe> -->
 	<div id="bottomtabs">
@@ -26,7 +65,26 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		$.ajax({
+			url:"https://snkdev.top/dev/api/v1/player/ranking",
+			dataType:"json",
+			type:"get",
+			success:function(data){
+				if(data&&data.data&&data.data.length>0){
+					$.each(data.data,function(index,player){
+						var bgcolor = "white";
+						if(player.no%2 ==0){
+							bgcolor = "grey";
+						}
+						$("#rankingDiv").append("<div class='"+bgcolor+"'>"
+							+"<div class='left'>"+player.no+"</div>"
+							+"<div class='mid'>"+player.name+"</div>"
+							+"<div class='right'>"+player.prize+"</div>"
+							+"</div>");
+					});
+				}
+			}
+		});
 	});
 </script>
 <script src="../../js/main.js"></script>
