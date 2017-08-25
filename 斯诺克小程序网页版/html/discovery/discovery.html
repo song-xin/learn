@@ -78,13 +78,30 @@
 		}
 		.mid {
 			float: left;
-			width: 33%;
+			width: 33.3%;
 			text-align: center;
 		}
 		.against-p2name {
 			float: right;
 		}
 		/*比分直播样式*/
+		
+		.pImg {
+			margin-top: 20px;
+		}
+		.live-against {
+			height: 150px;
+			border-top: 5px solid #F5F5F5;
+		}
+		.live-against-set {
+			margin-top: 10px;
+		}
+		.live-mid {
+			clear: both;
+		}
+		.red {
+			color: #cc0000;/*统一的暗红色*/
+		}
 	</style>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -95,7 +112,7 @@
 			<div class="toptab" id="toptab2">比分直播</div>
 		</div>
 		<div class="disPanel" id="scheduleDiv" ></div>
-		<div class="disPanel" id="liveDiv" style="display: none;">比分直播div</div>
+		<div class="disPanel" id="liveDiv" style="display: none;"></div>
 	</div>
 	<div class="fill"></div>
 	<!-- <iframe src="../bottomtab.html"></iframe> -->
@@ -111,8 +128,8 @@
 		//设置比分页面两个面板的位置
 		var toptabsHeight = $("#toptabs").height();
 		$(".disPanel").css("margin-top",toptabsHeight);
-		//ajax获取比分数据
-		loadData();
+		//加载今日赛程
+		loadScheduleData();
 
 		//今日赛程tab绑定点击事件
 		$("#toptab1").bind("click",function(){
@@ -120,8 +137,8 @@
 			$("#toptab2").css("border-bottom","none");
 			$("#scheduleDiv").css("display","block");
 			$("#liveDiv").css("display","none");
-			//ajax获取比分数据
-		  	loadData();
+			//加载今日赛程
+		  	loadScheduleData();
 		});
 
 		//比分直播tab绑定点击事件
@@ -130,9 +147,58 @@
 			$("#toptab1").css("border-bottom","none");
 			$("#scheduleDiv").css("display","none");
 			$("#liveDiv").css("display","block");
+			//加载比分直播
+			loadLiveData();
 		});
 	});
-	function loadData(){
+	//加载比分直播
+	function loadLiveData(){
+		$("#liveDiv").children().remove();
+		$.ajax({
+			url:"https://snkdev.top/dev/api/v1/match/livescore",
+			dataType:"json",
+			type:"get",
+			success:function(data){
+				if(data&&data.data&&data.data.length>0){
+					$.each(data.data,function(index,against){
+						$("#liveDiv").append("<div class='live-against'>"
+												+"<div class='p1head mid'>"
+													+"<div class='pImg'><img src='"+against.player1.headImgUrl+"'/></div>"
+													+"<div class='pname'>"+against.player1.name+"</div>"
+												+"</div>"
+												+"<div class='live-against-set mid'>"
+													+"<div class='bo'>BO<span class='red'>"+against.common.bestOf+"</span></div>"
+													+"<div class='1-score-2'>"
+														+"<div class='mid red'>"+against.player1.totalSetScore+"</div>"
+														+"<div class='mid'>局分</div>"
+														+"<div class='mid red'>"+against.player2.totalSetScore+"</div>"
+													+"</div>"
+													+"<div class='1-score-2'>"
+														+"<div class='mid red'>"+against.player1.thisSetScore+"</div>"
+														+"<div class='mid'>本局比分</div>"
+														+"<div class='mid red'>"+against.player2.thisSetScore+"</div>"
+													+"</div>"
+													+"<div class='1-score-2'>"
+														+"<div class='mid red'>"+against.player1.breakScore+"</div>"
+														+"<div class='mid'>单杆得分</div>"
+														+"<div class='mid red'>"+against.player2.breakScore+"</div>"
+													+"</div>"
+													+"<div class='live-mid'>台面剩余</div>"
+													+"<div class='live-mid red'>"+against.common.leftScore+"</div>"
+												+"</div>"
+												+"<div class='p2head mid'>"
+													+"<div class='pImg'><img src='"+against.player2.headImgUrl+"'/></div>"
+													+"<div class='pname'>"+against.player2.name+"</div>"
+												+"</div>"
+											+"</div>");
+					});
+				}
+			}
+		});
+	}
+	//加载今日赛程
+	function loadScheduleData(){
+		$("#scheduleDiv").children().remove();
 		$.ajax({
 			url:"https://snkdev.top/dev/api/v1/match/today",
 			type:"get",
