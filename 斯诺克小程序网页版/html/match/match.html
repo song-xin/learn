@@ -50,6 +50,21 @@
 		.clo-red {
 			color: red;
 		}
+		#cal-choose {
+			position: fixed;
+			left: 0%;
+			bottom: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: #F8F8F8;
+			display: none;
+		}
+		.year {
+			border-bottom: #F5F5F5 solid 1px;
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+		}
 	</style>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -60,12 +75,15 @@
 	<div id="matchsDiv">
 		
 	</div>
+	<div class="fill"></div>
 	<div id="bottomtabs" >
 		<div class="tab" id="tab1"><img id="discoveryImg" src="../../image/tab-discovery.png"  /><br/>比分</div>
 		<div class="tab" id="tab2"><img id="matchImg" src="../../image/tab-match-clicked.png"  /><br/>赛事</div>
 		<div class="tab" id="tab3"><img id="rankingImg" src="../../image/tab-ranking.png"  /><br/>世界排名</div>
 	</div>
-	
+	<div id="cal-choose" >
+		
+	</div>
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -75,6 +93,20 @@
 			var matchId = $(this).attr("matchId");
 			self.location = "singelmatch.html?id="+matchId;
 		});
+		$("#calendar").bind("click",function(){
+			$("#cal-choose").css("display","block");
+		});
+		for(var i=2010;i<2018;i++){
+			$("#cal-choose").append("<div class='year' onclick='loadData("+i+")'>"+i+"/"+(i+1)+"</div>");
+		}
+		loadData(season);
+		
+		// var matchsDivHeight = $("#matchsDiv").height();
+		// $("#matchsDiv").css("margin-bottom",bottomHeight+matchsDivHeight);
+		
+	});
+	function loadData(season){
+		$("#matchsDiv").children().remove();
 		$.ajax({
 			url:"https://snkdev.top/dev/api/v1/match/list?season="+season,
 			dataType:"json",
@@ -102,14 +134,8 @@
 				}
 			}
 		});
-		$("#calendar").bind("click",function(){
-
-		});
-		// var bottomHeight = $("#bottomtabs").height();
-		// var matchsDivHeight = $("#matchsDiv").height();
-		// $("#matchsDiv").css("margin-bottom",bottomHeight+matchsDivHeight);
-		
-	});
+		$("#cal-choose").css("display","none");
+	}
 	function openSingle(matchId){
 		self.location = "singlematch.html?id="+matchId;
 	}
