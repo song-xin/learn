@@ -76,7 +76,7 @@
 						if(player.no%2 ==0){
 							bgcolor = "grey";
 						}
-						$("#rankingDiv").append("<div class='"+bgcolor+"'>"
+						$("#rankingDiv").append("<div class='"+bgcolor+"' onclick='openPlayerInfo("+player.uid+")'>"
 							+"<div class='left'>"+player.no+"</div>"
 							+"<div class='mid'>"+player.name+"</div>"
 							+"<div class='right'>"+player.prize+"</div>"
@@ -86,6 +86,9 @@
 			}
 		});
 	});
+	function openPlayerInfo(uid){
+		self.location = "playerinfo.html?uid="+uid;
+	}
 </script>
 <script src="../../js/main.js"></script>
 </html>
