@@ -44,7 +44,7 @@
 			line-height: 30px;
 		}
 	</style>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="rankingDiv" >
@@ -55,6 +55,7 @@
 		</div>
 
 	</div>
+	<div class="fill"></div>
 	<!-- <iframe src="../bottomtab.html"></iframe> -->
 	<div id="bottomtabs">
 		<div class="tab" id="tab1"><img id="discoveryImg" src="../../image/tab-discovery.png"  /><br/>比分</div>
@@ -76,7 +77,7 @@
 						if(player.no%2 ==0){
 							bgcolor = "grey";
 						}
-						$("#rankingDiv").append("<div class='"+bgcolor+"'>"
+						$("#rankingDiv").append("<div class='"+bgcolor+"' onclick='openPlayerInfo("+player.uid+")'>"
 							+"<div class='left'>"+player.no+"</div>"
 							+"<div class='mid'>"+player.name+"</div>"
 							+"<div class='right'>"+player.prize+"</div>"
@@ -86,6 +87,9 @@
 			}
 		});
 	});
+	function openPlayerInfo(uid){
+		self.location = "playerinfo.html?uid="+uid;
+	}
 </script>
 <script src="../../js/main.js"></script>
 </html>

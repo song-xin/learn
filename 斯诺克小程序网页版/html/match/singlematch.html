@@ -4,13 +4,13 @@
 	<title>赛程</title>
 	<meta charset="utf-8">
 	<meta content-type="text/html">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<style type="text/css">
 		.date {
 			background-color: #cc0000;/*统一的暗红色*/
 			color: #FFFFFF;
-			height: 30px;
-			line-height: 30px;
+			height: 32px;
+			line-height: 32px;
 			text-align: center;
 			padding: 5px 0;
 		}
@@ -18,6 +18,8 @@
 			background-color: #F5F5F5;/*统一灰色*/
 			color: #cc0000;
 			padding: 5px 0;
+			height: 30px;
+			line-height: 30px;
 		}
 		.sessionhead-time {
 			margin-left: 45%;
@@ -29,7 +31,8 @@
 			border-bottom: #F5F5F5 solid 1px;
 			padding: 5px 0;
 			position: relative;
-
+			height: 28px;
+			line-height: 28px;
 		}
 		.against-no {
 			margin-left: 5px;
@@ -40,15 +43,20 @@
 		.against-set {
 			position: absolute;
 			display: inline;
-			
-			left: 50%;
+			height: 28px;
+			line-height: 28px;
+			width: 8%;
+			left: 5%;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			margin: auto;
+			text-align: center;
 		}
-		.border-5 {
-			margin: auto 5px;
+		.mid {
+			float: left;
+			width: 33%;
+			text-align: center;
 		}
 		.against-p2name {
 			float: right;
@@ -76,7 +84,16 @@ $(document).ready(function(){
 						$("#againstDiv").append(
 							"<div class='sessionhead'>序号<span class='sessionhead-time'>"+session.time+"</span><span class='sessionhead-round'>"+session.round+"</span></div>");
 						$.each(session.againstList,function(index,against){
-							$("#againstDiv").append("<div class='against' onclick='openDetail(&quot;"+against.dzid+"&quot;,&quot;"+data.date+"&quot;,&quot;"+session.time+"&quot;)'><span class='against-no'>"+against.no+"</span><span class='against-p1name'>"+against.p1name+"</span><div class='against-set'><span class='border-5'>"+against.p1set+"</span>"+"VS<span class='border-5'>"+against.p2set+"</span></div><span class='against-p2name'>"+against.p2name+"</span>"+"</div>");
+							$("#againstDiv").append("<div class='against' onclick='openDetail(&quot;"+against.dzid+"&quot;,&quot;"+data.date+"&quot;,&quot;"+session.time+"&quot;)'>"
+														+"<span class='against-no'>"+against.no+"</span>"
+														+"<span class='against-p1name'>"+against.p1name+"</span>"
+														+"<div class='against-set'>"
+															+"<div class='mid'>"+against.p1set+"</div>"
+															+"<div class='mid'>VS</div>"
+															+"<div class='mid'>"+against.p2set+"</div>"
+														+"</div>"
+														+"<span class='against-p2name'>"+against.p2name+"</span>"
+													+"</div>");
 						});
 					});
 				});
