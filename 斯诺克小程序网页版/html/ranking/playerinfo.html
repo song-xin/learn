@@ -7,7 +7,7 @@
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<style type="text/css">
 		#header {
-			background-image: url('../../image/againstbg.jpg');
+			background-image: url('../../image/playerbg.jpg');
 			color: #FFFFFF;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -24,10 +24,29 @@
 			margin-top: -25px;
 		}
 		#name {
+			/*height: 50px;*/
+
 			font-size: xx-large;
 		}
 		#desc {
-			margin: auto 8%;
+			/*font-weight: normal;*/
+			height: 100px;
+			/*line-height: 28px;*/
+			/*font-size: 12px;*/
+			/*margin-left: 8%;
+			margin-right: 8%;*/
+			/*margin-bottom: 10px;*/
+			text-overflow:ellipsis;
+			overflow: hidden;
+			margin: auto 8% 10px 8%;
+		}
+		#desc-open {
+			float: right;
+			padding-top: 40px;
+			margin-right: 8%;
+			color: #cc0000;/*统一的暗红色*/
+			font-size: small;
+			font-weight: lighter;
 		}
 		.detail-head {
 			background-color: #A0A0A0;
@@ -79,8 +98,8 @@
 				if(data&&data.data){
 					$("#content").append("<div id='player-name'>"
 											+"<img id='head-img' src='"+data.data.avatarUrl+"'/>"
-											+"<span id='name'>"+data.data.name+"</span>"
-											+"<div id='desc'>"+data.data.desc+"</div>"
+											+"<span id='name'>"+data.data.name+"</span><div id='desc-open' onclick='openDesc()'>点击展开</div>"
+											+"<div id='desc'><p>"+data.data.desc+"</p></div>"
 										+"</div>"
 										+"<div class='detail-head'>球员详情</div>"
 										+"<div class='player-detail'>"
@@ -102,6 +121,23 @@
 				}
 			}
 		});
+		// $("#desc").each(function (i) {  
+  //           var divH = $(this).height();  
+  //           var $p = $("p", $(this)).eq(0);  
+  //           while ($p.outerHeight() > divH) {  
+  //               $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));  
+  //           };  
+  //       });  
 	});
+	function openDesc(){
+		var text = $("#desc-open").text();
+		if(text == "点击展开"){
+			$("#desc").height("auto");
+			$("#desc-open").text("收起");
+		}else{
+			$("#desc").height("100px");
+			$("#desc-open").text("点击展开");
+		}
+	}
 </script>
 </html>

@@ -18,6 +18,13 @@
 			font-size: 35px;
 			background-color: #cc0000;/*统一的暗红色*/
 		}
+		#top-title {
+			position: absolute;
+			margin-left: 40%;
+			text-align: center;
+			height: 64px;
+			line-height: 64px;
+		}
 		.right {
 			float: right;
 			margin-right: 20px;
@@ -70,6 +77,7 @@
 </head>
 <body>
 	<div id="toptab">
+		<div id="top-title"></div>
 		<img id="calendar" class="right" src="../../image/calendar.png"/>
 	</div>
 	<div id="matchsDiv">
@@ -88,7 +96,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var season = new Date().getFullYear();
-		$("#toptab").append(season+"/"+(season+1)+"赛季");
+		$("#top-title").append(season+"/"+(season+1)+"赛季");
 		$(".poster-img").click(function(){
 			var matchId = $(this).attr("matchId");
 			self.location = "singelmatch.html?id="+matchId;
@@ -106,6 +114,7 @@
 		
 	});
 	function loadData(season){
+		$("#top-title").text(season+"/"+(season+1)+"赛季");
 		$("#matchsDiv").children().remove();
 		$.ajax({
 			url:"https://snkdev.top/dev/api/v1/match/list?season="+season,
