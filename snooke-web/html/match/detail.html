@@ -132,7 +132,7 @@
 		$("#header").children().remove();
 		$("#content").children().remove();
 		$.ajax({
-			url:"https://snkdev.top/dev/api/v1/match/detail?dzid="+dzid+"&date="+date,
+			url:static.apiUrl+"/api/v1/match/detail?dzid="+dzid+"&date="+date,
 			dataType:"json",
 			type:"get",
 			success:function(data){
@@ -181,4 +181,5 @@
 		});
 	}
 </script>
+<script src="../../js/main.js"></script>
 </html>

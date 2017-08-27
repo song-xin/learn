@@ -73,7 +73,7 @@ $(document).ready(function(){
 	var params = location.search;
 	var matchId = params.substring(params.indexOf("=")+1);
 	$.ajax({
-		url:"https://snkdev.top/dev/api/v1/match/schedule?id="+matchId,
+		url:static.apiUrl+"/api/v1/match/schedule?id="+matchId,
 		dataType:"json",
 		type:"get",
 		success:function(data){
@@ -107,4 +107,5 @@ function openDetail(dzid,date,time){
 	self.location = "detail.html?dzid="+dzid+"&date="+date+" "+time;
 }
 </script>
+<script src="../../js/main.js"></script>
 </html>
