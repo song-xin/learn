@@ -11,8 +11,8 @@
 			left: 0;
 			top: 0;
 			width: 100%;
-			height: 64px;
-			line-height: 64px;
+			height: 100px;
+			line-height: 100px;
 			color:#ffffff;
 			text-align: center;
 			font-size: 35px;
@@ -22,8 +22,12 @@
 			position: absolute;
 			margin-left: 40%;
 			text-align: center;
-			height: 64px;
-			line-height: 64px;
+			height: 100px;
+			line-height: 100px;
+		}
+		#calendar {
+			width: 100px;
+			height: 100px;
 		}
 		.right {
 			float: right;
@@ -39,17 +43,25 @@
 			border-top:  #F5F5F5 solid 1px;
 			border-bottom: #F5F5F5 solid 1px;
 			clear: both;
-			height: 400px;
+			height: 300px;
 
 		}
 		.img {
 			padding: 50px;
-			width: 300px;
-			height: 300px;
+			width: 200px;
+			height: 200px;
 			float: left;
+		}
+		.poster-img {
+			width: 200px;
+			height: 200px;
 		}
 		.match-describe {
 			margin-top: 50px;
+		}
+		.match-title {
+			font-size: xx-large;
+			font-weight: bold;
 		}
 		.h32 {
 			height: 25px;
@@ -84,9 +96,10 @@
 		}
 		.year {
 			border-bottom: #F5F5F5 solid 1px;
+			font-size: large;
 			text-align: center;
-			height: 50px;
-			line-height: 50px;
+			height: 100px;
+			line-height: 100px;
 		}
 	</style>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -144,7 +157,7 @@
 							posterUrl="http://oodlprgqg.bkt.clouddn.com/%E6%9C%80%E7%BB%88%E7%89%88_meitu_12.png";
 						}
 						$("#matchsDiv").append("<div class='matchDiv' onclick='openSingle("+item.id+")'><div class='img'><img class='poster-img' src='"+posterUrl+"'/></div>"
-							+"<div class='match-describe'><h3>"+item.name+"</h3>"
+							+"<div class='match-describe'><div class='match-title'>"+item.name+"</div>"
 							+"<div class='h32'>"
 							+"<span class='text-part'><img class='img-s' src='../../image/type.png'/></span><span class='text-part'>赛事性质："+item.type+"</span>"
 							+"</div>"
