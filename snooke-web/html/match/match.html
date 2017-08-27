@@ -39,20 +39,36 @@
 			border-top:  #F5F5F5 solid 1px;
 			border-bottom: #F5F5F5 solid 1px;
 			clear: both;
-			height: 300px;
+			height: 400px;
 
 		}
 		.img {
+			padding: 50px;
 			width: 300px;
 			height: 300px;
 			float: left;
 		}
 		.match-describe {
-
+			margin-top: 50px;
+		}
+		.h32 {
+			height: 25px;
+			margin-top: 10px;
+			margin-bottom: 10px;	
+		}
+		.img-s {
+			height: 25px;
+			width: 25px;
+			bottom: 0px;
 		}
 		.text-part{
-			/*margin: 0 auto;
-			line-height: 32px;*/
+			/*margin: 0 auto;*/
+			/*float: left;*/
+			display:block;
+			float: left;
+			vertical-align:middle;
+			height: 25px;
+			line-height: 25px;
 		}
 		.clo-red {
 			color: red;
@@ -117,7 +133,7 @@
 		$("#top-title").text(season+"/"+(season+1)+"赛季");
 		$("#matchsDiv").children().remove();
 		$.ajax({
-			url:"https://snkdev.top/dev/api/v1/match/list?season="+season,
+			url:static.apiUrl+"/api/v1/match/list?season="+season,
 			dataType:"json",
 			type:"get",
 			success:function(data){
@@ -129,14 +145,14 @@
 						}
 						$("#matchsDiv").append("<div class='matchDiv' onclick='openSingle("+item.id+")'><div class='img'><img class='poster-img' src='"+posterUrl+"'/></div>"
 							+"<div class='match-describe'><h3>"+item.name+"</h3>"
-							+"<div class=''>"
-							+"<img src='../../image/type.png'/><span class='text-part'>赛事性质："+item.type+"</span>"
+							+"<div class='h32'>"
+							+"<span class='text-part'><img class='img-s' src='../../image/type.png'/></span><span class='text-part'>赛事性质："+item.type+"</span>"
 							+"</div>"
-							+"<div class=''>"
-							+"<img src='../../image/time.png'/><span class='text-part clo-red'>时间："+item.time+"</span>"
+							+"<div class='h32'>"
+							+"<span class='text-part'><img class='img-s' src='../../image/time.png'/></span><span class='text-part clo-red'>时间："+item.time+"</span>"
 							+"</div>"
-							+"<div class=''>"
-							+"<img src='../../image/number.png'/><span class='text-part'>参赛人数："+item.number+"</span>"
+							+"<div class='h32'>"
+							+"<span class='text-part'><img class='img-s' src='../../image/number.png'/></span><span class='text-part'>参赛人数："+item.number+"</span>"
 							+"</div>"
 							+"</div></div>");
 					});
