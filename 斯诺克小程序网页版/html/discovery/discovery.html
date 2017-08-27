@@ -149,7 +149,7 @@
 			$("#liveDiv").css("display","block");
 			//加载比分直播
 			loadLiveData();
-			setInterval("loadLiveData()",10000)
+			setInterval("loadLiveData()",10000);
 		});
 	});
 	//加载比分直播
@@ -168,7 +168,7 @@
 						}
 						$("#liveDiv").append("<div class='live-against'>"
 												+"<div class='p1head mid'>"
-													+"<div class='pImg'><img src='"+against.player1.headImgUrl+"'/></div>"
+													+"<div class='pImg'><img onclick='openPlayerInfo("+against.player1.uid+")' src='"+against.player1.headImgUrl+"'/></div>"
 													+"<div class='pname'>"+against.player1.name+"</div>"
 												+"</div>"
 												+"<div class='live-against-set mid'>"
@@ -192,7 +192,7 @@
 													+"<div class='live-mid red'>"+against.common.leftScore+"</div>"
 												+"</div>"
 												+"<div class='p2head mid'>"
-													+"<div class='pImg'><img src='"+against.player2.headImgUrl+"'/></div>"
+													+"<div class='pImg'><img onclick='openPlayerInfo("+against.player2.uid+")' src='"+against.player2.headImgUrl+"'/></div>"
 													+"<div class='pname'>"+against.player2.name+"</div>"
 												+"</div>"
 											+"</div>");
@@ -229,9 +229,15 @@
 			}
 		});
 	}
+	//打开对阵详情页面
 	function openDetail(dzid,time){
 		var date = getNowFormatDate();
 		self.location = "../match/detail.html?dzid="+dzid+"&date="+date+" "+time;
+	}
+
+	//打开球员详情页面
+	function openPlayerInfo(uid){
+		self.location = "../ranking/playerinfo.html?uid="+uid;
 	}
 	function getNowFormatDate() {
 	    var date = new Date();
