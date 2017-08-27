@@ -130,7 +130,7 @@
 		$(".disPanel").css("margin-top",toptabsHeight);
 		//加载今日赛程
 		loadScheduleData();
-
+		var interval ;
 		//今日赛程tab绑定点击事件
 		$("#toptab1").bind("click",function(){
 			$(this).css("border-bottom","red 1px solid");
@@ -139,6 +139,9 @@
 			$("#liveDiv").css("display","none");
 			//加载今日赛程
 		  	loadScheduleData();
+		  	if(interval){
+		  		window.clearInterval(interval);
+		  	}
 		});
 
 		//比分直播tab绑定点击事件
@@ -149,7 +152,7 @@
 			$("#liveDiv").css("display","block");
 			//加载比分直播
 			loadLiveData();
-			setInterval("loadLiveData()",10000);
+			interval = setInterval("loadLiveData()",10000);
 		});
 	});
 	//加载比分直播

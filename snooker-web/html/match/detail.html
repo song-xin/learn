@@ -113,22 +113,26 @@
 <div id="content"></div>
 </body>
 <script type="text/javascript">
+var interval;
 	$(document).ready(function(){
 		var params = location.search;
 		var dzid = "";
 		var date = "";
 		var strs = {};
+		
+		
 		if(params.indexOf("?")!=-1){
 			var str = params.substring(1);
 			strs = str.split("&");
 			dzid = unescape(strs[0].split("=")[1]);
 			date = unescape(strs[1].split("=")[1]);
 		}
-		loadDetail(dzid,date);
-		setInterval("loadDetail('"+dzid+"','"+date+"')",3000);
+		var clear = loadDetail(dzid,date);
+		interval=setInterval("loadDetail('"+dzid+"','"+date+"')",10000);
 		
 	});
 	function loadDetail(dzid,date){
+		var clear = false;
 		$("#header").children().remove();
 		$("#content").children().remove();
 		$.ajax({
@@ -140,6 +144,11 @@
 					var nstate = '已结束';
 					if(data.data.nstate=='live'){
 						nstate = data.data.live.points1+'&nbsp&nbsp:&nbsp&nbsp'+data.data.live.points2;
+					}else{
+						if(interval){
+							window.clearInterval(interval);
+						}
+						
 					}
 					$("#header").append("<div id='person1' class='top-mid' ><img src='"+data.data.photo1+"'/><div class='player-font'>"+data.data.player1+"</div></div>");
 					$("#header").append("<div id='describe' class='top-mid'>"
@@ -179,6 +188,7 @@
 				}
 			}
 		});
+		return clear;
 	}
 </script>
 <script src="../../js/main.js"></script>
