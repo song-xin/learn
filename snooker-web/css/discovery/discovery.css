@@ -1,0 +1,95 @@
+#tab1 {
+	color: red;
+}
+
+#toptabs {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #FFFFFF;
+	z-index: 99;
+}
+.toptab {
+	float: left;
+	/*margin:2%;*/
+	width: 50%;
+	text-align:center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: red;
+	background-color: #FFFFFF;
+}
+#toptab1 {
+	border-bottom:solid red 1px;
+}
+.disPanel {
+	/*margin-top: 5%;*/
+	/*background-color: grey;*/
+}
+/*今日赛程样式*/
+.sessionhead {
+	background-color: #F5F5F5;/*统一灰色*/
+	color: #cc0000;
+	padding: 5px 0;
+	height: 30px;
+	line-height: 30px;
+}
+.sessionhead-time {
+	margin-left: 45%;
+}
+.sessionhead-round {
+	margin-left: 3%;
+}
+.against {
+	border-bottom: #F5F5F5 solid 1px;
+	padding: 5px 0;
+	position: relative;
+	height: 28px;
+	line-height: 28px;
+}
+.against-no {
+	margin-left: 5px;
+}
+.against-p1name {
+	margin-left: 5px;
+}
+.against-set {
+	position: absolute;
+	display: inline;
+	height: 28px;
+	line-height: 28px;
+	width: 8%;
+	left: 5%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+}
+.mid {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+}
+.against-p2name {
+	float: right;
+}
+/*比分直播样式*/
+
+.pImg {
+	margin-top: 20px;
+}
+.live-against {
+	height: 150px;
+	border-top: 5px solid #F5F5F5;
+}
+.live-against-set {
+	margin-top: 10px;
+}
+.live-mid {
+	clear: both;
+}
+.red {
+	color: #cc0000;/*统一的暗红色*/
+}

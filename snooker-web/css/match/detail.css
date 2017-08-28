@@ -1,0 +1,100 @@
+#header {
+	background-image: url('../../image/againstbg.jpg');
+	color: #FFFFFF;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 400px;
+	font-weight: lighter;
+}
+.top-mid {
+	padding-top:13%;
+	float: left;
+	width: 33.3%;
+	text-align: center;
+}
+#person1  {
+}
+.player-font {
+}
+img {
+	/*margin-top: 10%;*/
+}
+#describe {
+}
+#matchname {
+}
+#nstate {
+	font-weight: bold;
+	font-size: x-large;
+}
+#person2 {
+}
+#content {
+	margin-top: 15px;
+}
+.score {
+	margin: 5px 10px;
+	padding: 5px auto;
+	background-color: #F5F5F5;
+	height: 20px;
+}
+.font-bold {
+	font-weight: bold;
+}
+.left {
+	float: left;
+	padding-left:10%;
+	text-align: center;
+	width: 10%;
+}
+.right {
+	float: right;
+	padding-right:10%;
+	text-align: center;
+	width: 10%;
+}
+.m-left {
+	float: left;
+	position: absolute;
+	margin-left: 38%;
+	text-align: center;
+	width: 10%;
+}
+.m-right {
+	/*float: right;*/
+	position: absolute;
+	margin-left: 50%;
+	text-align: center;
+	width: 10%;
+}
+.mid {
+	float: left;
+	position: absolute;
+	margin: auto 44%;
+	text-align: center;
+	width: 10%;
+}
+.red {
+	color: #cc0000;/*统一的暗红色*/
+}
+/*live*/
+.live-box {
+	width: 30%;
+	margin-left: 35%;
+	background-color: #F5F5F5;/*统一灰色*/
+	margin-top: 3px;
+	text-align: center;
+}
+.bg-grey {
+	background-color: grey;
+}
+.bg-red {
+	background-color: #cc0000;/*统一的暗红色*/
+}
+.vs-l {
+	float: left;
+}
+.vs-r {
+	float: right;
+}
