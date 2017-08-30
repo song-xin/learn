@@ -1,0 +1,37 @@
+#tab3 {
+	color: red;
+}
+.bg-red {
+	background-color: #cc0000;/*统一的暗红色*/
+	color: #FFFFFF;
+	font-size: larger;
+	height: 40px;
+	line-height: 40px;
+}
+.left {
+	width: 10%;
+	float: left;
+	margin-left: 3%;
+	text-align: center;
+}
+.right {
+	width: 20%;
+	float: right;
+	margin-right: 3%;
+	text-align: center;
+}
+.mid {
+	width: 30%;
+	position: absolute;
+	margin-left: 32%;
+	text-align: center;
+}
+.grey {
+	background-color: #F5F5F5;/*统一灰色*/
+	height: 30px;
+	line-height: 30px;
+}
+.white {
+	height: 30px;
+	line-height: 30px;
+}

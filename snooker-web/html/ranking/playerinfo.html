@@ -5,81 +5,7 @@
 	<meta charset="utf-8">
 	<meta content-type="text/html">
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	<style type="text/css">
-		#header {
-			background-image: url('../../image/playerbg.jpg');
-			color: #FFFFFF;
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			width: 100%;
-			height: 400px;
-			font-weight: lighter;
-			line-height: 400px;
-			text-align: center;
-			font-size: xx-large;
-			letter-spacing:5px;
-		}
-		#head-img {
-			float: left;
-			margin-left: 8%;
-			margin-top: -25px;
-		}
-		#name {
-			/*height: 50px;*/
-			float: left;
-			font-size: xx-large;
-			padding-top: 40px;
-		}
-		#desc {
-			clear: both;
-			/*font-weight: normal;*/
-			height: 100px;
-			/*line-height: 28px;*/
-			margin-left: 8%;
-			margin-right: 8%;
-			margin-bottom: 10px;
-			overflow: hidden;
-			/*margin: auto 8% 10px 8%;*/
-		}
-		#desc-open {
-			float: right;
-			padding-top: 40px;
-			margin-right: 8%;
-			color: #cc0000;/*统一的暗红色*/
-			font-size: small;
-			font-weight: lighter;
-		}
-		.detail-head {
-			background-color: #A0A0A0;
-			color: #FFFFFF;
-			font-weight: bold;
-			width: 100%;
-			height: 28px;
-			line-height: 28px;
-			text-align: center;
-			clear: both;
-		}
-		.player-detail {
-			margin: auto 8%;
-		}
-		.detail {
-			margin: 3px auto;
-			width: 50%;
-			float: left;
-		}
-		.s-box {
-			height: 80%;
-		}
-		.red {
-			background-color: #cc0000;/*统一的暗红色*/
-		}
-		.grey {
-			background-color: #686868;
-		}
-		.k-v {
-			padding-left: 5px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../../css/ranking/playerinfo.css">
 </head>
 <body>
 	<div id="header">PLAYER INFORMATION</div>
@@ -87,59 +13,6 @@
 		
 	</div>
 </body>
-<script type="text/javascript">
-	$(document).ready(function(){
-		var params = location.search;
-		var uid = params.substring(params.indexOf("=")+1);
-		$.ajax({
-			url:static.apiUrl+"/api/v1/player/info?uid="+uid,
-			dataType:"json",
-			type:"get",
-			success:function(data){
-				if(data&&data.data){
-					$("#content").append("<div id='player-name'>"
-											+"<img id='head-img' src='"+data.data.avatarUrl+"'/>"
-											+"<div id='name'>"+data.data.name+"</div><div id='desc-open' onclick='openDesc()'>点击展开</div>"
-											+"<div id='desc'>"+data.data.desc+"</div>"
-										+"</div>"
-										+"<div class='detail-head'>球员详情</div>"
-										+"<div class='player-detail'>"
-											+"<div class='detail'><span class='s-box red'>&nbsp&nbsp&nbsp</span><span class='k-v'>国籍："+data.data.country+"</span></div>"
-											+"<div class='detail'><span class='s-box red'>&nbsp&nbsp&nbsp</span><span class='k-v'>转职年份："+data.data.turnedPro+"</span></div>"
-											+"<div class='detail'><span class='s-box red'>&nbsp&nbsp&nbsp</span><span class='k-v'>出生日期："+data.data.birthday+"</span></div>"
-										+"</div>"
-										+"<div class='detail-head'>职业生涯统计</div>"
-										+"<div class='player-detail'>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>世界排名："+data.data.rank+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>破百数："+data.data.centuryBreak+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>大型排名比赛冠军数："+data.data.largeTitles+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>邀请赛冠军数："+data.data.inviteTitles+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>小型排名比赛冠军数："+data.data.microTitles+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>147数："+data.data.maxBreak+"</span></div>"
-											+"<div class='detail'><span class='s-box grey'>&nbsp&nbsp&nbsp</span><span class='k-v'>冠军总数："+data.data.titles+"</span></div>"
-										+"</div>"
-										);
-				}
-			}
-		});
-		// $("#desc").each(function (i) {  
-  //           var divH = $(this).height();  
-  //           var $p = $("p", $(this)).eq(0);  
-  //           while ($p.outerHeight() > divH) {  
-  //               $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));  
-  //           };  
-  //       });  
-	});
-	function openDesc(){
-		var text = $("#desc-open").text();
-		if(text == "点击展开"){
-			$("#desc").height("min-content");
-			$("#desc-open").text("收起");
-		}else{
-			$("#desc").height("100px");
-			$("#desc-open").text("点击展开");
-		}
-	}
-</script>
+<script src="../../js/ranking/playerinfo.js"></script>
 <script src="../../js/main.js"></script>
 </html>

@@ -1,0 +1,96 @@
+#toptab {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	color:#ffffff;
+	text-align: center;
+	font-size: 35px;
+	background-color: #cc0000;/*统一的暗红色*/
+}
+#top-title {
+	position: absolute;
+	margin-left: 40%;
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+}
+#calendar {
+	width: 100px;
+	height: 100px;
+}
+.right {
+	float: right;
+	margin-right: 20px;
+}
+#tab2 {
+	color: red;
+}
+#matchsDiv{
+	margin-top: 100px;
+}
+.matchDiv {
+	border-top:  #F5F5F5 solid 1px;
+	border-bottom: #F5F5F5 solid 1px;
+	clear: both;
+	height: 300px;
+
+}
+.img {
+	padding: 50px;
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+.poster-img {
+	width: 200px;
+	height: 200px;
+}
+.match-describe {
+	margin-top: 50px;
+}
+.match-title {
+	height: 45px;
+	font-size: xx-large;
+	font-weight: bold;
+}
+.h32 {
+	height: 25px;
+	margin-top: 26px;
+	/*margin-bottom: 20px;	*/
+}
+.img-s {
+	height: 25px;
+	width: 25px;
+	bottom: 0px;
+}
+.text-part{
+	/*margin: 0 auto;*/
+	/*float: left;*/
+	display:block;
+	float: left;
+	vertical-align:middle;
+	height: 25px;
+	line-height: 25px;
+}
+.clo-red {
+	color: red;
+}
+#cal-choose {
+	position: fixed;
+	left: 0%;
+	bottom: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #F8F8F8;
+	display: none;
+}
+.year {
+	border-bottom: #F5F5F5 solid 1px;
+	font-size: large;
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+}
