@@ -11,5 +11,9 @@
 	/*margin:2%;*/
 	width: 33%;
 	text-align:center;
-	padding-bottom: 10px;
+	padding-bottom: 4px;
+}
+.img-tab {
+	width: 30px;
+	height: 30px;
 }

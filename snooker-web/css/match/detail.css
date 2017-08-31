@@ -4,13 +4,18 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	width: 100%;
-	height: 400px;
-	font-weight: lighter;
+	height: 150px;
 }
 .top-mid {
 	padding-top:13%;
 	float: left;
-	width: 33.3%;
+	width: 40%;
+	text-align: center;
+}
+.top-30 {
+	padding-top:13%;
+	float: left;
+	width: 30%;
 	text-align: center;
 }
 #person1  {
@@ -25,10 +30,12 @@ img {
 #matchname {
 }
 #nstate {
-	font-weight: bold;
-	font-size: x-large;
 }
 #person2 {
+}
+.photo {
+	width: 60px;
+	height: 60px;
 }
 #content {
 	margin-top: 15px;
@@ -57,7 +64,7 @@ img {
 .m-left {
 	float: left;
 	position: absolute;
-	margin-left: 38%;
+	margin-left: 30%;
 	text-align: center;
 	width: 10%;
 }
@@ -71,7 +78,7 @@ img {
 .mid {
 	float: left;
 	position: absolute;
-	margin: auto 44%;
+	margin: auto 40%;
 	text-align: center;
 	width: 10%;
 }
@@ -81,7 +88,7 @@ img {
 /*live*/
 .live-box {
 	width: 30%;
-	margin-left: 35%;
+	margin-left: 30%;
 	background-color: #F5F5F5;/*统一灰色*/
 	margin-top: 3px;
 	text-align: center;

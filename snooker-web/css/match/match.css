@@ -3,68 +3,71 @@
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 100px;
-	line-height: 100px;
+	height: 50px;
+	line-height: 50px;
 	color:#ffffff;
 	text-align: center;
-	font-size: 35px;
+	font-size: large;
 	background-color: #cc0000;/*统一的暗红色*/
 }
 #top-title {
 	position: absolute;
-	margin-left: 40%;
+	margin-left: 33%;
 	text-align: center;
-	height: 100px;
-	line-height: 100px;
+	height: 50px;
+	line-height: 50px;
 }
 #calendar {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 }
 .right {
 	float: right;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 #tab2 {
 	color: red;
 }
 #matchsDiv{
-	margin-top: 100px;
+	margin-top: 50px;
 }
 .matchDiv {
 	border-top:  #F5F5F5 solid 1px;
 	border-bottom: #F5F5F5 solid 1px;
 	clear: both;
-	height: 300px;
+	height: 120px;
 
 }
 .img {
-	padding: 50px;
-	width: 200px;
-	height: 200px;
+	padding: 20px;
+	width: 80px;
+	height: 80px;
 	float: left;
 }
 .poster-img {
-	width: 200px;
-	height: 200px;
+	width: 80px;
+	height: 80px;
 }
 .match-describe {
-	margin-top: 50px;
+	margin-top: 10px;
 }
 .match-title {
-	height: 45px;
-	font-size: xx-large;
-	font-weight: bold;
+	/*height: 45px;*/
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	/*font-weight: bold;*/
 }
 .h32 {
-	height: 25px;
-	margin-top: 26px;
+	height: 15px;
+	margin-top: 7px;
+	font-size: xx-small;
 	/*margin-bottom: 20px;	*/
 }
 .img-s {
-	height: 25px;
-	width: 25px;
-	bottom: 0px;
+	height: 10px;
+	width: 10px;
+	padding-right: 3px;
 }
 .text-part{
 	/*margin: 0 auto;*/
@@ -72,8 +75,8 @@
 	display:block;
 	float: left;
 	vertical-align:middle;
-	height: 25px;
-	line-height: 25px;
+	height: 10px;
+	line-height: 10px;
 }
 .clo-red {
 	color: red;
@@ -89,8 +92,8 @@
 }
 .year {
 	border-bottom: #F5F5F5 solid 1px;
-	font-size: large;
+	/*font-size: large;*/
 	text-align: center;
-	height: 100px;
-	line-height: 100px;
+	height: 50px;
+	line-height: 50px;
 }

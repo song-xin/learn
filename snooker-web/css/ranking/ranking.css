@@ -4,26 +4,27 @@
 .bg-red {
 	background-color: #cc0000;/*统一的暗红色*/
 	color: #FFFFFF;
-	font-size: larger;
+	/*font-size: large;*/
 	height: 40px;
 	line-height: 40px;
 }
 .left {
-	width: 10%;
+	width: 20%;
 	float: left;
-	margin-left: 3%;
+	/*margin-left: 3%;*/
 	text-align: center;
 }
 .right {
-	width: 20%;
-	float: right;
-	margin-right: 3%;
+	width: 30%;
+	float: left;
+	/*margin-right: 3%;*/
 	text-align: center;
 }
 .mid {
-	width: 30%;
-	position: absolute;
-	margin-left: 32%;
+	width: 50%;
+	float: left;
+	/*position: absolute;*/
+	/*margin-left: 32%;*/
 	text-align: center;
 }
 .grey {

@@ -8,12 +8,16 @@ $(document).ready(function(){
 		success:function(data){
 			if(data&&data.data&&data.data.length>0){
 				$.each(data.data,function(index,data){
-					$("#againstDiv").append("<div class='date'>"+data.date+data.day+"</div>");
+					$("#againstDiv").append("<div class='date f-lighter'>"+data.date+"&nbsp&nbsp"+data.day+"</div>");
 					$.each(data.sessionList,function(index,session){
 						$("#againstDiv").append(
-							"<div class='sessionhead'>序号<span class='sessionhead-time'>"+session.time+"</span><span class='sessionhead-round'>"+session.round+"</span></div>");
+							"<div class='sessionhead x-s'>序号<div class='sessionhead-timeround'>"+session.time+"&nbsp&nbsp"+session.round+"&nbsp&nbsp&nbsp&nbsp</div></div>");
 						$.each(session.againstList,function(index,against){
-							$("#againstDiv").append("<div class='against' onclick='openDetail(&quot;"+against.dzid+"&quot;,&quot;"+data.date+"&quot;,&quot;"+session.time+"&quot;)'>"
+							var borderBottom = "grey-b-b";
+							if(index == session.againstList.length-1){
+								borderBottom = "";
+							}
+							$("#againstDiv").append("<div class='against xx-s "+borderBottom+"' onclick='openDetail(&quot;"+against.dzid+"&quot;,&quot;"+data.date+"&quot;,&quot;"+session.time+"&quot;)'>"
 														+"<span class='against-no'>"+against.no+"</span>"
 														+"<span class='against-p1name'>"+against.p1name+"</span>"
 														+"<div class='against-set'>"

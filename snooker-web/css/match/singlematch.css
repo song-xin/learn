@@ -10,24 +10,26 @@
 	background-color: #F5F5F5;/*统一灰色*/
 	color: #cc0000;
 	padding: 5px 0;
-	height: 30px;
-	line-height: 30px;
+	height: 26px;
+	line-height: 26px;
 }
-.sessionhead-time {
-	margin-left: 45%;
-}
-.sessionhead-round {
-	margin-left: 3%;
+.sessionhead-timeround {
+	float: right;
+	/*margin-left: 35%;*/
+	width: 90%;
+	text-align: center;
 }
 .against {
-	border-bottom: #F5F5F5 solid 1px;
-	padding: 5px 0;
+	/*padding: 5px 0;*/
 	position: relative;
-	height: 28px;
-	line-height: 28px;
+	height: 20px;
+	line-height: 20px;
+}
+.grey-b-b {
+	border-bottom: #C0C0C0 solid 1px;
 }
 .against-no {
-	margin-left: 5px;
+	/*margin-left: 5px;*/
 }
 .against-p1name {
 	margin-left: 5px;
@@ -37,7 +39,7 @@
 	display: inline;
 	height: 28px;
 	line-height: 28px;
-	width: 8%;
+	width: 20%;
 	left: 5%;
 	top: 0;
 	right: 0;
