@@ -35,13 +35,13 @@ function loadDetail(dzid,date){
 					}
 					
 				}
-				$("#header").append("<div id='person1' class='top-mid' ><img src='"+data.data.photo1+"'/><div class='player-font'>"+data.data.player1+"</div></div>");
+				$("#header").append("<div id='person1' class='top-30' ><img class='photo' src='"+data.data.photo1+"'/><div class='player-font'>"+data.data.player1+"</div></div>");
 				$("#header").append("<div id='describe' class='top-mid'>"
 										+"<div id='matchname'>"+data.data.matchname+"&nbsp"+data.data.luncititle+"</div>"
-										+"<div id='nstate'>"+nstate+"</div>"
+										+"<div id='nstate' class='f-bold x-l'>"+nstate+"</div>"
 										+"<div id='fen'>"+data.data.player1fen+"&nbsp:&nbsp"+data.data.player2fen+"</div>"
 									+"</div>");
-				$("#header").append("<div id='person2' class='top-mid'><img src='"+data.data.photo2+"'/><div class='player-font'>"+data.data.player2+"</div></div>");
+				$("#header").append("<div id='person2' class='top-30'><img class='photo' src='"+data.data.photo2+"'/><div class='player-font'>"+data.data.player2+"</div></div>");
 				if(data.data.nstate=='live'){
 					var breakpot = data.data.live.break1;
 					var vs = '';
