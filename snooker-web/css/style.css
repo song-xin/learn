@@ -19,3 +19,10 @@
 	width: 20px;
 	height: 20px;
 }
+.bg-red {
+	background-color: #cc0000;/*统一的暗红色*/
+	color: #FFFFFF;
+	/*font-size: large;*/
+	height: 40px;
+	line-height: 40px;
+}

@@ -7,8 +7,11 @@ $(document).ready(function(){
 		var interval ;
 		//今日赛程tab绑定点击事件
 		$("#toptab1").bind("click",function(){
-			$(this).css({"border-bottom":"red 1px solid","color":"#cc0000"});
-			$("#toptab2").css({"border-bottom":"none","color":"black"});
+			// $(this).css({"border-bottom":"red 1px solid","color":"#cc0000"});
+			// $("#toptab2").css({"border-bottom":"none","color":"black"});
+			$(this).addClass("bg-red");
+			$("#toptab2").removeClass("bg-red");
+
 			$("#scheduleDiv").css("display","block");
 			$("#liveDiv").css("display","none");
 			//加载今日赛程
@@ -20,8 +23,11 @@ $(document).ready(function(){
 
 		//比分直播tab绑定点击事件
 		$("#toptab2").bind("click",function(){
-			$(this).css({"border-bottom":"red 1px solid","color":"#cc0000"});
-			$("#toptab1").css({"border-bottom":"none","color":"black"});
+			// $(this).css({"border-bottom":"red 1px solid","color":"#cc0000"});
+			// $("#toptab1").css({"border-bottom":"none","color":"black"});
+			$(this).addClass("bg-red");
+			$("#toptab1").removeClass("bg-red");
+
 			$("#scheduleDiv").css("display","none");
 			$("#liveDiv").css("display","block");
 			//加载比分直播
