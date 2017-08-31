@@ -1,4 +1,8 @@
 html{-webkit-text-size-adjust:none;}
+body {
+	margin:0px auto;
+	padding:0px;
+}
 #header {
 	background-image: url('../../image/playerbg.jpg');
 	color: #FFFFFF;

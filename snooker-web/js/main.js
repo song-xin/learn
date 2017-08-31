@@ -17,6 +17,6 @@ $(document).ready(function(){
 	$(".fill").css("height",bottomHeight);
 });
 var static = {
-	apiUrl:"http://localhost:8080/snkapi" //本机nginx代理
-	//apiUrl:"http://snkdev.top/snkapi" //线上nginx代理
+	// apiUrl:"http://localhost:8080/snkapi" //本机nginx代理
+	apiUrl:"http://snkdev.top/snkapi" //线上nginx代理
 }
