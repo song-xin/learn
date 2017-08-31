@@ -5,10 +5,10 @@ body {
 .date {
 	background-color: #cc0000;/*统一的暗红色*/
 	color: #FFFFFF;
-	height: 32px;
-	line-height: 32px;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
-	padding: 5px 0;
+	/*padding: 5px 0;*/
 }
 .sessionhead {
 	background-color: #F5F5F5;/*统一灰色*/
