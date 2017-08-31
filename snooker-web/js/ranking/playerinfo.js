@@ -49,7 +49,7 @@ function openDesc(){
 }
 function minDesc(){
 	$(".desc").each(function (i) {  
-		var divH = 50;
+		var divH = 100;
 		var $p = $("p", $(this)).eq(0);
 		var h = $p.outerHeight();
 		if(h<divH){
