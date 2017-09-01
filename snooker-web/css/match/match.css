@@ -27,7 +27,7 @@
 	margin-right: 10px;
 }
 #tab2 {
-	color: red;
+	color: #cc0000;/*统一的暗红色*/
 }
 #matchsDiv{
 	margin-top: 40px;
@@ -81,7 +81,7 @@
 }
 .clo-red {
 	/*color: red;*/
-	co#cc0000;/*统一的暗红色*/
+	color: #cc0000;/*统一的暗红色*/
 }
 #cal-choose {
 	position: fixed;

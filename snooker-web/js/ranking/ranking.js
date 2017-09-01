@@ -12,7 +12,7 @@ $(document).ready(function(){
 					}
 					$("#rankingDiv").append("<div class='"+bgcolor+" x-s' onclick='openPlayerInfo("+player.uid+")'>"
 						+"<div class='left'>"+player.no+"</div>"
-						+"<div class='mid'>"+player.name+"</div>"
+						+"<div class='mid f-bold'>"+player.name+"</div>"
 						+"<div class='right'>"+player.prize+"</div>"
 						+"</div>");
 				});
