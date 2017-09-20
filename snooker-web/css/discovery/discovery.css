@@ -76,16 +76,32 @@
 	width: 33%;
 	text-align: center;
 }
+.s-mid {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+.s-left {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+.s-right {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
 .against-p2name {
 	float: right;
 }
 /*比分直播样式*/
 
-.pImg {
+.pImg img{
+	width: 70px;
 	margin-top: 20px;
 }
 .live-against {
-	height: 150px;
+	height: 120px;
 	border-top: 5px solid #F5F5F5;
 }
 .live-against-set {
